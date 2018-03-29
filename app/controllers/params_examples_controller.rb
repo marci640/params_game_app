@@ -24,5 +24,22 @@ class ParamsExamplesController < ApplicationController
       render "query_params.html.erb"
     
   end
+ 
+  def form_params_method
+    render "form_params.html.erb"
+  end
+
+  def form_result_method
+    winning_number = "36"
+    @guess = params[:form_message]
+    if @guess > winning_number
+        @message_lower = "guess lower!"
+      elsif @guess < winning_number
+        @message_higher = "guess higher"
+      else
+        @message_correct = "you got it!"
+      end 
+    render "form_result.html.erb"
+  end 
 
 end
